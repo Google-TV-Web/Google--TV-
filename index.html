@@ -1,138 +1,206 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101116">
-  <title>Google TV — Films et séries</title>
+  <title>Google TV - Films et séries</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Accueil">
-      <span class="brand-mark">▶</span><span>Google <b>TV</b></span>
-    </a>
+<header class="topbar">
+  <a class="brand" href="#accueil">Google TV</a>
+  <nav>
+    <a href="#films">Films</a>
+    <a href="#series">Séries</a>
+    <a href="#tendances">Tendances</a>
+  </nav>
+  <div class="header-actions">
+    <button id="searchToggle" type="button">Rechercher</button>
+    <button id="loginOpen" type="button">Connexion</button>
+    <button id="signupOpen" type="button">Créer un compte</button>
+    <button id="profileButton" type="button">Mon compte</button>
+    <button id="logoutButton" type="button" hidden>Déconnexion</button>
+  </div>
+</header>
 
-    <nav class="desktop-nav">
-      <a class="active" href="#accueil">Pour vous</a>
-      <a href="#films">Films</a>
-      <a href="#series">Séries</a>
-      <a href="#tendances">Tendances</a>
-    </nav>
+<main id="accueil">
 
-    <div class="actions">
-      <button class="icon-btn" id="searchToggle">⌕</button>
-      <button class="secondary-btn" id="loginOpen">Connexion</button>
-      <button class="primary-btn" id="signupOpen">Créer un compte</button>
-      <button class="avatar" id="profileButton">G</button>
-      <button class="secondary-btn" id="logoutButton" hidden>Déconnexion</button>
+  <section class="hero">
+    <div class="hero-content">
+      <span>BIENVENUE SUR GOOGLE TV</span>
+      <h1>Vos films et séries préférés au même endroit.</h1>
+      <p>Découvrez un univers de divertissement.</p>
+      <a href="#films" class="primary-btn">Découvrir</a>
     </div>
-  </header>
+  </section>
 
-  <main id="accueil">
+  <section id="searchPanel" class="search-panel">
+    <input id="searchInput" type="search" placeholder="Rechercher un film ou une série...">
+    <button id="clearSearch" type="button">Effacer</button>
+  </section>
 
-    <section class="hero">
-      <div class="hero-shade"></div>
-      <div class="hero-content">
-        <p class="eyebrow">À LA UNE · SÉLECTION DU MOMENT</p>
-        <h1>Des histoires<br>à vivre pleinement.</h1>
-        <p class="hero-copy">Retrouvez vos films et séries préférés au même endroit.</p>
-        <div class="hero-buttons">
-          <a class="primary-btn" href="#films">▶ Découvrir</a>
-          <a class="secondary-btn" href="#series">Explorer les séries</a>
-        </div>
-      </div>
-      <div class="hero-tag">Votre univers de divertissement</div>
-    </section>
+  <section id="films" class="content-section">
+    <h2>Films populaires</h2>
+    <div id="movieList" class="movie-list"></div>
+  </section>
 
-    <section class="search-panel" id="searchPanel">
-      <input id="searchInput" type="search" placeholder="Rechercher un film ou une série...">
-      <button id="clearSearch" type="button">Effacer</button>
-    </section>
+  <section id="series" class="content-section">
+    <h2>Séries populaires</h2>
+    <div id="seriesList" class="movie-list"></div>
+  </section>
 
-    <section class="content-section" id="films">
-      <div class="section-heading">
-        <div><p class="eyebrow">À NE PAS MANQUER</p><h2>Films populaires</h2></div>
-        <a href="#films" class="see-all">Tout voir →</a>
-      </div>
-      <div class="poster-row" id="movieList"></div>
-    </section>
+  <section id="tendances" class="content-section">
+    <h2>À découvrir</h2>
+    <p>Retrouvez régulièrement de nouveaux films et de nouvelles séries sur Google TV.</p>
+  </section>
 
-    <section class="content-section" id="series">
-      <div class="section-heading">
-        <div><p class="eyebrow">À SUIVRE</p><h2>Séries à découvrir</h2></div>
-        <a href="#series" class="see-all">Tout voir →</a>
-      </div>
-      <div class="poster-row" id="seriesList"></div>
-    </section>
+  <section id="adminPanel" hidden>
+    <h2>Administration Google TV</h2>
+    <p>Gestion des nouvelles inscriptions</p>
+    <div id="pendingUsers">Chargement...</div>
+  </section>
 
-    <section class="content-section" id="tendances">
-      <div class="section-heading">
-        <div><p class="eyebrow">CHOISISSELON VOS ENVIES</p><h2>Explorer par catégorie</h2></div>
-      </div>
-      <div class="category-grid">
-        <a href="#films">Action <span>↗</span></a>
-        <a href="#films">Comédie <span>↗</span></a>
-        <a href="#films">Aventure <span>↗</span></a>
-        <a href="#series">Science-fiction <span>↗</span></a>
-      </div>
-    </section>
+</main>
 
-    <section class="content-section" id="adminPanel" hidden>
-      <h2>Administration Google TV</h2>
-      <p>Gestion des inscriptions en attente.</p>
-      <div id="pendingUsers"></div>
-    </section>
+<footer>
+  <h2>Google TV</h2>
+  <p>Votre espace de divertissement.</p>
+  <p>© 2026 Google TV. Tous droits réservés.</p>
+</footer>
 
-  </main>
+<!-- FORMULAIRE DE CONNEXION ET INSCRIPTION -->
+<dialog id="authDialog">
+  <button id="authClose" type="button" aria-label="Fermer">✕</button>
 
-  <footer>
-    <span class="brand"><span class="brand-mark">▶</span> Google <b>TV</b></span>
-    <p>Une vitrine de découverte de films et de séries.</p>
-    <small>Les affiches sont présentées à titre illustratif.</small>
-  </footer>
+  <h2 id="authTitle">Créer un compte</h2>
 
-  <dialog id="authDialog">
-    <button class="close-dialog" id="authClose">×</button>
-    <div class="dialog-copy">
-      <p class="eyebrow">BIENVENUE SUR GOOGLE TV</p>
-      <h2 id="authTitle">Créer un compte</h2>
+  <form id="authForm">
 
-      <form id="authForm">
-        <label for="fullName">Nom et prénom</label>
-        <input id="fullName" type="text" autocomplete="name" required>
-
-        <label for="phone">Numéro de téléphone</label>
-        <input id="phone" type="tel" placeholder="+229..." autocomplete="tel" required>
-
-        <label for="email">Adresse Gmail ou e-mail</label>
-        <input id="email" type="email" autocomplete="email" required>
-
-        <label for="password">Mot de passe</label>
-        <input id="password" type="password" minlength="8" autocomplete="new-password" required>
-
-        <button class="primary-btn" id="authSubmit" type="submit">Créer mon compte</button>
-      </form>
-
-      <p id="authMessage" role="status"></p>
-      <button class="secondary-btn" id="switchAuth" type="button">J'ai déjà un compte</button>
+    <div>
+      <label for="fullName">Nom et prénom</label>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Votre nom et prénom"
+        required
+      >
     </div>
-  </dialog>
 
-  <dialog id="detailDialog">
-    <button class="close-dialog" id="closeDialog">×</button>
-    <img id="detailImage" alt="">
-    <div class="dialog-copy">
-      <p class="eyebrow">DÉCOUVRIR</p>
-      <h2 id="detailTitle"></h2>
-      <p id="detailDescription"></p>
-      <button class="primary-btn" id="dialogOk">Fermer</button>
+    <div>
+      <label for="phone">Numéro de téléphone</label>
+      <div class="phone-fields">
+        <select id="countryCode" required>
+          <option value="+229" selected>Bénin (+229)</option>
+          <option value="+225">Côte d'Ivoire (+225)</option>
+          <option value="+221">Sénégal (+221)</option>
+          <option value="+228">Togo (+228)</option>
+          <option value="+226">Burkina Faso (+226)</option>
+          <option value="+223">Mali (+223)</option>
+          <option value="+227">Niger (+227)</option>
+          <option value="+234">Nigeria (+234)</option>
+          <option value="+233">Ghana (+233)</option>
+          <option value="+237">Cameroun (+237)</option>
+          <option value="+241">Gabon (+241)</option>
+          <option value="+243">RD Congo (+243)</option>
+          <option value="+242">Congo (+242)</option>
+          <option value="+235">Tchad (+235)</option>
+          <option value="+236">Centrafrique (+236)</option>
+          <option value="+240">Guinée équatoriale (+240)</option>
+          <option value="+224">Guinée (+224)</option>
+          <option value="+245">Guinée-Bissau (+245)</option>
+          <option value="+220">Gambie (+220)</option>
+          <option value="+232">Sierra Leone (+232)</option>
+          <option value="+231">Liberia (+231)</option>
+          <option value="+254">Kenya (+254)</option>
+          <option value="+256">Ouganda (+256)</option>
+          <option value="+255">Tanzanie (+255)</option>
+          <option value="+250">Rwanda (+250)</option>
+          <option value="+257">Burundi (+257)</option>
+          <option value="+251">Éthiopie (+251)</option>
+          <option value="+252">Somalie (+252)</option>
+          <option value="+27">Afrique du Sud (+27)</option>
+          <option value="+20">Égypte (+20)</option>
+          <option value="+212">Maroc (+212)</option>
+          <option value="+213">Algérie (+213)</option>
+          <option value="+216">Tunisie (+216)</option>
+          <option value="+33">France (+33)</option>
+          <option value="+32">Belgique (+32)</option>
+          <option value="+41">Suisse (+41)</option>
+          <option value="+49">Allemagne (+49)</option>
+          <option value="+34">Espagne (+34)</option>
+          <option value="+39">Italie (+39)</option>
+          <option value="+44">Royaume-Uni (+44)</option>
+          <option value="+351">Portugal (+351)</option>
+          <option value="+1">États-Unis / Canada (+1)</option>
+          <option value="+55">Brésil (+55)</option>
+          <option value="+52">Mexique (+52)</option>
+          <option value="+91">Inde (+91)</option>
+          <option value="+86">Chine (+86)</option>
+          <option value="+81">Japon (+81)</option>
+          <option value="+82">Corée du Sud (+82)</option>
+          <option value="+971">Émirats arabes unis (+971)</option>
+          <option value="+966">Arabie saoudite (+966)</option>
+          <option value="+90">Turquie (+90)</option>
+          <option value="+61">Australie (+61)</option>
+          <option value="+64">Nouvelle-Zélande (+64)</option>
+        </select>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Votre numéro"
+          required
+        >
+      </div>
     </div>
-  </dialog>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="app.js"></script>
+    <div>
+      <label for="email">Adresse Gmail ou e-mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="exemple@gmail.com"
+        required
+      >
+    </div>
+
+    <div>
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Choisissez votre mot de passe"
+        minlength="8"
+        required
+      >
+    </div>
+
+    <p id="authMessage" aria-live="polite"></p>
+
+    <button id="authSubmit" type="submit">Créer mon compte</button>
+
+    <button id="switchAuth" type="button">
+      J'ai déjà un compte
+    </button>
+
+  </form>
+</dialog>
+
+<!-- FENÊTRE DES FILMS -->
+<dialog id="detailDialog">
+  <button id="closeDialog" type="button">✕</button>
+  <img id="detailImage" src="" alt="Affiche du film">
+  <h2 id="detailTitle"></h2>
+  <p id="detailDescription"></p>
+  <button id="dialogOk" type="button">Fermer</button>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
+
