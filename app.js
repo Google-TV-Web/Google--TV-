@@ -1,6 +1,6 @@
 
 const SUPABASE_URL = "https://gxywkdpbwebuxxilsfqb.supabase.co";
-const SUPABASE_KEY = "sb_publishable_cgghpZNW7fIoFjXIiVQGtw_Q2H4Sety";
+ SUPABASE_KEY = "sb_publishable_cgghpZNW7fIoFjXIiVQGtw_Q2H4Sety";
 const ADMIN_EMAIL = "Directioninfo525@gmail.com";
 
 const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
