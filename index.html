@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <title>Google TV — Films et séries</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Accueil"><span class="brand-mark">▶</span><span>Google <b>TV</b></span></a>
+    <nav class="desktop-nav"><a class="active" href="#accueil">Pour vous</a><a href="#films">Films</a><a href="#series">Séries</a><a href="#tendances">Tendances</a></nav>
+    <div class="actions"><button class="icon-btn" id="searchToggle" aria-label="Rechercher">⌕</button><button class="avatar" aria-label="Profil">G</button></div>
+  </header>
+
+  <main id="accueil">
+    <section class="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">À LA UNE · SÉLECTION DU MOMENT</p>
+        <h1>Des histoires<br>à vivre pleinement.</h1>
+        <p class="hero-copy">Retrouvez vos films et séries préférés au même endroit.</p>
+        <div class="hero-buttons"><a class="primary-btn" href="#films">▶ Découvrir</a><a class="secondary-btn" href="#series">Explorer les séries</a></div>
+      </div>
+      <div class="hero-tag">Votre univers de divertissement</div>
+    </section>
+
+    <section class="search-panel" id="searchPanel">
+      <input id="searchInput" type="search" placeholder="Rechercher un film ou une série..." aria-label="Rechercher un film ou une série">
+      <button id="clearSearch" type="button">Effacer</button>
+    </section>
+
+    <section class="content-section" id="films">
+      <div class="section-heading"><div><p class="eyebrow">À NE PAS MANQUER</p><h2>Films populaires</h2></div><a href="#films" class="see-all">Tout voir →</a></div>
+      <div class="poster-row" id="movieList"></div>
+    </section>
+    <section class="content-section" id="series">
+      <div class="section-heading"><div><p class="eyebrow">À SUIVRE</p><h2>Séries à découvrir</h2></div><a href="#series" class="see-all">Tout voir →</a></div>
+      <div class="poster-row" id="seriesList"></div>
+    </section>
+    <section class="content-section" id="tendances">
+      <div class="section-heading"><div><p class="eyebrow">CHOISISSELON VOS ENVIES</p><h2>Explorer par catégorie</h2></div></div>
+      <div class="category-grid">
+        <a href="#films">Action <span>↗</span></a><a href="#films">Comédie <span>↗</span></a><a href="#films">Aventure <span>↗</span></a><a href="#series">Science-fiction <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer><span class="brand"><span class="brand-mark">▶</span> Google <b>TV</b></span><p>Une vitrine de découverte de films et de séries.</p><small>Les affiches sont présentées à titre illustratif.</small></footer>
+
+  <dialog id="detailDialog">
+    <button class="close-dialog" id="closeDialog" aria-label="Fermer">×</button>
+    <img id="detailImage" alt="">
+    <div class="dialog-copy"><p class="eyebrow">DÉCOUVRIR</p><h2 id="detailTitle"></h2><p id="detailDescription"></p><button class="primary-btn" id="dialogOk">Fermer</button></div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
